@@ -213,6 +213,11 @@ namespace JeffPires.VisualChatGPTStudio.Options
         [Description("Change the API connection URL if you wish to do so for some reason, for example use a custom LLM deployment. Example: https://myurl.openai.com")]
         [DefaultValue("")]
         public string BaseAPI { get; set; } = string.Empty;
+        [Category("OpenAI")]
+        [DisplayName("API version")]
+        [Description("Change the API version on URL if you wish to do so for some reason. Example: https://api.openai.com/{API_Version}")]
+        [DefaultValue("")]
+        public string ApiVersion { get; set; } = "v1";
 
         [Category("OpenAI")]
         [DisplayName("Model Language")]
