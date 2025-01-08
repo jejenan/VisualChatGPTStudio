@@ -114,11 +114,11 @@ namespace JeffPires.VisualChatGPTStudio.ToolWindows
             {
                 EnableDisableButtons(false, true);
 
-                string changes = GitChanges.GetCurrentChanges();
+                string changes = GitChanges.GetCurrentStagedChanges();
 
                 if (string.IsNullOrWhiteSpace(changes))
                 {
-                    MessageBox.Show("No changes found.", Constants.EXTENSION_NAME, MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("No staged changes found.", Constants.EXTENSION_NAME, MessageBoxButton.OK, MessageBoxImage.Information);
 
                     return;
                 }

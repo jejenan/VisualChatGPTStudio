@@ -44,7 +44,25 @@ namespace VisualChatGPTStudioShared.Utils
 
             return result.ToString();
         }
+        /// <summary>
+        /// Retrieves the current staged changes in the Git repository of the solution as a patch.
+        /// </summary>
+        /// <returns>A Patch object representing the current changes.</returns>
+        public static Patch GetCurrentStagedChanges()
+        {
+            string repositoryPath = GetSolutionGitRepositoryPath();
 
+            if (string.IsNullOrWhiteSpace(repositoryPath))
+            {
+                throw new ArgumentNullException(nameof(repositoryPath));
+            }
+
+            using (Repository repo = new(repositoryPath))
+            {
+                // Capture the differences between the index (staging area) 
+                return repo.Diff.Compare<Patch>(repo.Head.Tip.Tree, DiffTargets.Index);
+            }
+        }
         /// <summary>
         /// Retrieves the current changes in the Git repository of the solution as a patch.
         /// </summary>

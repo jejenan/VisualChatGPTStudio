@@ -67,11 +67,11 @@ namespace JeffPires.VisualChatGPTStudio.ToolWindows
 
                 CodeReviews = [];
 
-                Patch changes = GitChanges.GetCurrentChanges();
+                Patch changes = GitChanges.GetCurrentStagedChanges();
 
                 if (changes == null || !changes.Any(c => c.LinesAdded > 0 || c.LinesDeleted > 0))
                 {
-                    MessageBox.Show("No changes found.", Constants.EXTENSION_NAME, MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("No staged changes found.", Constants.EXTENSION_NAME, MessageBoxButton.OK, MessageBoxImage.Information);
 
                     return;
                 }
