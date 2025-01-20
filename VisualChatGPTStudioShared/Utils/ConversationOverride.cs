@@ -1,5 +1,5 @@
-﻿using OpenAI_API.Chat;
-using OpenAI_API.Models;
+﻿using OpenAI.Chat;
+using OpenAI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
